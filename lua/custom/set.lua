@@ -26,9 +26,11 @@ vim.g.neovide_refresh_rate = 144
 vim.g.neovide_confirm_quit = true
 
 vim.opt.fillchars = {
-	eob = " ",
+    eob = " ",
 }
 
 vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.o.background = "dark"

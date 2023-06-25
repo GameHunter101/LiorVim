@@ -94,20 +94,30 @@ _G.packer_plugins = {
     path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  ["cmp-buffer"] = {
+  ["coq.artifacts"] = {
     loaded = true,
-    path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
-    url = "https://github.com/hrsh7th/cmp-buffer"
+    path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coq.artifacts",
+    url = "https://github.com/ms-jpq/coq.artifacts"
   },
-  ["cmp-nvim-lsp"] = {
+  ["coq.thirdparty"] = {
     loaded = true,
-    path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+    path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coq.thirdparty",
+    url = "https://github.com/ms-jpq/coq.thirdparty"
+  },
+  coq_nvim = {
+    loaded = true,
+    path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coq_nvim",
+    url = "https://github.com/ms-jpq/coq_nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["lsp-progress.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-progress.nvim",
+    url = "https://github.com/linrongbin16/lsp-progress.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -159,11 +169,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
-  ["nvim-cmp"] = {
-    loaded = true,
-    path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
-  },
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-colorizer.lua",
@@ -199,8 +204,13 @@ _G.packer_plugins = {
     path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   oxocarbon = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme oxocarbon\bcmd\bvim\0" },
+    config = { "\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0" },
     loaded = true,
     path = "C:\\Users\\liors\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\oxocarbon",
     url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
@@ -245,7 +255,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: oxocarbon
 time([[Config for oxocarbon]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme oxocarbon\bcmd\bvim\0", "config", "oxocarbon")
+try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "oxocarbon")
 time([[Config for oxocarbon]], false)
 
 _G._packer.inside_compile = false

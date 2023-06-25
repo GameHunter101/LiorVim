@@ -1,4 +1,3 @@
----@diagnostic disable: redundant-parameter
 local status, null_ls = pcall(require, "null-ls")
 if not status then
 	return
