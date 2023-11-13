@@ -1,3 +1,3 @@
-require("custom")
-require("custom.packer")
-
+require("lior.options")
+require("lior.lazy")
+require("lior.remaps")
