@@ -1,14 +1,39 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    build = function ()
+    config = function ()
         local configs = require("nvim-treesitter.configs")
         local install = require("nvim-treesitter.install")
 
         install.update({ with_sync = true })()
 
-        configs.setup{
+        configs.setup({
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
-            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "javascript", "typescript", "python", "html", "css", "help" },
+            ensure_installed = {
+                "c",
+                "lua",
+                "vim",
+                "vimdoc",
+                "query",
+                "rust",
+                "javascript",
+                "typescript",
+                "python",
+                "html",
+                "css",
+                "json",
+                "tsx",
+                "markdown",
+            },
+
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "<C-n>",
+                    node_incremental = "<C-n>",
+                    scope_incremental = false,
+                    node_decremental = "<C-p>"
+                }
+            },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
@@ -23,17 +48,13 @@ return {
 
             highlight = {
                 enable = true,
-
-
-                -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-                -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-                -- Using this option may slow down your editor, and you may see some duplicate highlights.
-                -- Instead of true it can also be a list of languages
-                additional_vim_regex_highlighting = false,
             },
             autotag = {
                 enable = true,
+            },
+            indent = {
+                enable = true,
             }
-        }
+        })
     end,
 }
