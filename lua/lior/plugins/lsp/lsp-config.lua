@@ -1,28 +1,106 @@
 return {
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
+        "neovim/nvim-lspconfig",
         dependencies = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/nvim-cmp",
+
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
             { "antosha417/nvim-lsp-file-operations", config = true },
+            "j-hui/fidget.nvim",
         },
         config = function ()
-            local lsp_zero = require("lsp-zero")
-            lsp_zero.on_attach(function(client, bufnr)
-                -- see :help lsp-zero-keybindings
-                -- to learn the available actions
-                lsp_zero.default_keymaps({buffer = bufnr})
-                local opts = {buffer = bufnr, remap = false}
-                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-                -- vim.keymap.set("n", "gh", function() vim.lsp.buf.hover() end, opts)
-                vim.keymap.set("n", "ca", function() vim.lsp.buf.code_action() end, opts)
-                vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
-                vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
-            end)
-            lsp_zero.setup_servers({'tsserver', 'rust_analyzer', "lua_ls"})
-        end,
-    },
-    {
-        'neovim/nvim-lspconfig',
+            require("fidget").setup({})
+            require("mason").setup()
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "tsserver",
+                    "html",
+                    "tailwindcss",
+                    "lua_ls",
+                    "rust_analyzer",
+                    "pyright"
+                },
+                handlers = {
+                    function(server_name)
+                        require("lspconfig")[server_name].setup({capabilities = capabilities})
+                    end,
+                    ["lua_ls"] = function ()
+                        local lspconfig = require("lspconfig")
+                        lspconfig.lua_ls.setup {
+                            settings = {
+                                Lua = {
+                                    diagnostics = {
+                                        globals = { "vim" }
+                                    }
+                                }
+                            }
+                        }
+                    end,
+                },
+            })
+
+            local cmp = require("cmp")
+
+            local cmp_select = { behavior = cmp.SelectBehavior.Select }
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        require('luasnip').lsp_expand(args.body)
+                    end,
+                },
+                window = {
+                    completion = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ["C-n"] = cmp.mapping.select_next_item(cmp_select),
+                    ["C-p"] = cmp.mapping.select_prev_item(cmp_select),
+                    ["<C-c>"] = cmp.mapping.abort(),
+                    ["<cr>"] = cmp.mapping.confirm({ select = true })
+                }),
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
+                    { name = "path" },
+                    { name = "buffer" },
+                }),
+            })
+
+
+            local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
+            for type, icon in pairs(signs) do
+                local hl = "DiagnosticSign" .. type
+                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+            end
+
+            vim.diagnostic.config({
+                virtual_text = true,
+                update_in_insert = true,
+                signs = true,
+                severity_sort = true,
+                float = {
+                    focusable = false,
+                    style = "minimal",
+                    border = "rounded",
+                    source = "always",
+                    header = "",
+                    prefix = "",
+                },
+            })
+
+        end
+
     }
 }
