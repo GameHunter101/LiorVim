@@ -22,19 +22,26 @@ map.set("i", "<C-c>", "<Esc>")
 map.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- ToggleTerm keymaps
-map.set({"n", "v", "i", "t"}, "<C-t>", ":ToggleTerm<cr>")
+map.set({ "n", "v", "i", "t" }, "<C-t>", ":ToggleTerm<cr>")
 
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
-  map.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  map.set('t', '<C-c>', [[<C-\><C-n>]], opts)
-  map.set('t', 'jk', [[<C-\><C-n>]], opts)
-  map.set('t', '<C-h>', [[:wincmd h<CR>]], opts)
-  map.set('t', '<C-j>', [[:wincmd j<CR>]], opts)
-  map.set('t', '<C-k>', [[:wincmd k<CR>]], opts)
-  map.set('t', '<C-l>', [[:wincmd l<CR>]], opts)
-  map.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+    local opts = { buffer = 0 }
+    map.set('t', '<esc>', [[<C-\><C-n>]], opts)
+    map.set('t', '<C-c>', [[<C-\><C-n>]], opts)
+    map.set('t', 'jk', [[<C-\><C-n>]], opts)
+    map.set('t', '<C-h>', [[:wincmd h<CR>]], opts)
+    map.set('t', '<C-j>', [[:wincmd j<CR>]], opts)
+    map.set('t', '<C-k>', [[:wincmd k<CR>]], opts)
+    map.set('t', '<C-l>', [[:wincmd l<CR>]], opts)
+    map.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 end
+
 vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
 map.set("n", "<leader>l", ":Lazy<CR>")
+map.set("n", "<leader>h", ":Alpha<CR>")
+map.set("n", "sh", ":split<Return><C-w>w")
+map.set("n", "sv", ":vsplit<Return><C-w>w")
+map.set("n", "<leader>xx", function() require("trouble").toggle() end)
+map.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
+map.set("n", "<leader>xf", function() require("trouble").toggle("document_diagnostics") end)

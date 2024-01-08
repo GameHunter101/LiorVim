@@ -13,7 +13,6 @@ return {
             ensure_installed = {
                 "tsserver",
                 "html",
-                "css",
                 "tailwindcss",
                 "lua_ls",
                 "rust_analyzer",
