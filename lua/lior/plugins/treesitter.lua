@@ -18,6 +18,8 @@ return {
                 "python",
                 "html",
                 "tsx",
+                "markdown",
+                "markdown_inline",
             },
 
             incremental_selection = {

@@ -25,8 +25,8 @@ return {
 				},
 		    sections = {
 	    		lualine_a = { "mode" },
-	    		lualine_b = { --[[require("lsp-progress").progress--]] },
-	    		lualine_c = { "filename" },
+                lualine_b = { "filename" },
+	    		lualine_c = { "diagnostics" },
 	    		lualine_x = { { "filetype", colored = true, icon = { align = "right" }, icon_only = true } },
 	    		lualine_y = { "progress" },
 	    		lualine_z = { "location" },
