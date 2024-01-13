@@ -26,3 +26,4 @@ opt.fillchars = {
 }
 opt.cursorline = true
 o.background = "dark"
+opt.scrolloff = 10

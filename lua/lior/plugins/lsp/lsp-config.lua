@@ -14,10 +14,8 @@ return {
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
             { "antosha417/nvim-lsp-file-operations", config = true },
-            "j-hui/fidget.nvim",
         },
         config = function()
-            require("fidget").setup({})
             require("mason").setup()
 
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -32,7 +30,11 @@ return {
                 },
                 handlers = {
                     function(server_name)
-                        require("lspconfig")[server_name].setup({ capabilities = capabilities })
+                        require("lspconfig")[server_name].setup({
+                            capabilities = capabilities,
+                            diagnostics = { underline = true },
+                            inlay_hints = { enabled = true },
+                        })
                     end,
                     ["lua_ls"] = function()
                         local lspconfig = require("lspconfig")
@@ -99,17 +101,6 @@ return {
                     header = "",
                     prefix = "",
                 },
-            })
-
-            local lspui = require("lspconfig.ui.windows")
-            lspui.default_options.border = "double"
-
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-                border = "rounded",
-            })
-
-            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-                border = "rounded",
             })
         end
 
