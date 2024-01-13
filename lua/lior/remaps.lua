@@ -28,3 +28,9 @@ map.set("n", "sv", ":vsplit<Return><C-w>w")
 map.set("n", "<leader>xx", function() require("trouble").toggle() end)
 map.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
 map.set("n", "<leader>xf", function() require("trouble").toggle("document_diagnostics") end)
+
+map.set("n", "<A-a>", ":vertical resize +5<CR>")
+map.set("n", "<A-d>", ":vertical resize -5<CR>")
+
+map.set("n", "<A-w>", ":resize +5<CR>")
+map.set("n", "<A-s>", ":resize -5<CR>")
