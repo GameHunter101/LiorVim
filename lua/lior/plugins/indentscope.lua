@@ -12,7 +12,6 @@ return {
                 "neo-tree",
                 "lazy",
                 "mason",
-                "toggleterm",
             },
             callback = function ()
                 vim.b.miniindentscope_disable = true

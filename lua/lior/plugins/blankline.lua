@@ -15,7 +15,6 @@ return {
                 "neo-tree",
                 "lazy",
                 "mason",
-                "toggleterm",
             }
         }
     },
