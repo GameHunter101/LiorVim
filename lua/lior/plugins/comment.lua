@@ -5,12 +5,12 @@ return {
         padding = true,
         sticky = true,
         toggler = {
-            line = "<C-l>",
-            block = "<C-b>",
+            line = "<C-s>",
+            block = "<C-m>",
         },
         opleader = {
-            line = "<C-l>",
-            block = "<C-b>",
+            line = "<C-s>",
+            block = "<C-m>",
         }
     }
 }
