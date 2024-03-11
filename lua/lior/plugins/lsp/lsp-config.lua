@@ -4,6 +4,7 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "jay-babu/mason-nvim-dap.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
@@ -15,6 +16,7 @@ return {
             "rafamadriz/friendly-snippets",
             { "antosha417/nvim-lsp-file-operations", config = true },
         },
+        event = {"BufReadPre", "BufNewFile"},
         config = function()
             require("mason").setup()
 
@@ -25,7 +27,6 @@ return {
                     "html",
                     "tailwindcss",
                     "lua_ls",
-                    "rust_analyzer",
                     "pyright"
                 },
                 handlers = {
@@ -49,6 +50,13 @@ return {
                         }
                     end,
                 },
+            })
+
+            require("mason-nvim-dap").setup({
+                ensure_installed = {
+                    "codelldb",
+                    "cpptools",
+                }
             })
 
             local cmp = require("cmp")

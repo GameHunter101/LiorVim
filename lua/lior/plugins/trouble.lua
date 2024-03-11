@@ -5,9 +5,11 @@ return {
         require("trouble").setup({
             height = 20,
             action_keys = {
-                open_split = { "<C-s>" },
-                close = "<C-q>",
-                open_tab = { "<cr>" },
+                open_split = { "sh" },
+                open_vsplit = {"sv"},
+                close = "<C-x>",
+                open_tab = { "<CR>" },
+                jump_close = {"<CR>"}
             }
         })
 

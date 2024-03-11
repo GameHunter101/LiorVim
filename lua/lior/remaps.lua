@@ -22,7 +22,7 @@ map.set("i", "<C-c>", "<Esc>")
 map.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 map.set("n", "<leader>l", ":Lazy<CR>")
-map.set("n", "<leader>h", ":Alpha<CR>")
+-- map.set("n", "<leader>h", ":Alpha<CR>")
 map.set("n", "sh", ":split<Return><C-w>w")
 map.set("n", "sv", ":vsplit<Return><C-w>w")
 map.set("n", "<leader>xx", function() require("trouble").toggle() end)
