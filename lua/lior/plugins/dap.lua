@@ -1,8 +1,10 @@
 return {
     "rcarriga/nvim-dap-ui",
+    version = "4.0.0",
     dependencies = {
         "mfussenegger/nvim-dap",
         "folke/neodev.nvim",
+        "nvim-neotest/nvim-nio",
     },
     config = function()
         local dap = require("dap")

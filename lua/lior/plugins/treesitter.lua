@@ -1,7 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    version = "0.9.2",
     config = function()
+        vim.filetype.add({ extension = { wgsl = "wgsl" } })
+
         local configs = require("nvim-treesitter.configs")
         local install = require("nvim-treesitter.install")
 
@@ -20,6 +23,7 @@ return {
                 "tsx",
                 "markdown",
                 "markdown_inline",
+                "wgsl",
             },
 
             incremental_selection = {

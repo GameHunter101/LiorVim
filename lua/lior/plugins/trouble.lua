@@ -1,24 +1,21 @@
 return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-        require("trouble").setup({
-            height = 20,
-            action_keys = {
-                open_split = { "sh" },
-                open_vsplit = {"sv"},
-                close = "<C-x>",
-                open_tab = { "<CR>" },
-                jump_close = {"<CR>"}
-            }
-        })
-
-        vim.keymap.set("n", "tn", function()
-            require("trouble").next({ skip_groups = true, jump = true })
-        end)
-
-        vim.keymap.set("n", "tp", function()
-            require("trouble").previous({ skip_groups = true, jump = true })
-        end)
-    end
+    opts = {
+        auto_close = true,
+        focus = true,
+    },
+    cmd = "Trouble",
+    keys = {
+        {
+            "<leader>xx",
+            "<cmd>Trouble diagnostics toggle<cr>",
+            desc = "Diagnostics (Trouble)",
+        },
+        {
+            "<leader>xQ",
+            "<cmd>Trouble qflist toggle<cr>",
+            desc = "Quickfix list (Trouble)",
+        }
+    }
 }

@@ -23,6 +23,9 @@ return {
                 },
                 hover = {
                     silent = true
+                },
+                message = {
+                    enabled = false,
                 }
             },
             -- you can enable a preset for easier configuration
