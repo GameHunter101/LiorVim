@@ -34,11 +34,11 @@ return {
                 "--fallback-style=chromium"
             }
         })
-	lsp.configure("typst", {
-		settings = {
-			exportPdf = "onSave",
-		}
-	})
+        require("lspconfig").typst_lsp.setup({
+            settings = {
+                exportPdf = "onSave",
+            }
+        })
 
         lsp.setup()
 
