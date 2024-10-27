@@ -24,6 +24,7 @@ return {
                 "markdown",
                 "markdown_inline",
                 "wgsl",
+                "java"
             },
 
             incremental_selection = {

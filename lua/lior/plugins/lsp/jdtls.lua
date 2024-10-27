@@ -1,0 +1,15 @@
+return {
+    {
+        "mfussenegger/nvim-jdtls",
+    }
+}
+
+--[[ return {
+    {
+        "nvim-java/nvim-java",
+        setup = function ()
+            require("java").setup()
+            require("lspconfig").jdtls.setup({})
+        end
+    }
+} ]]
