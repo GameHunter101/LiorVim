@@ -1,11 +1,12 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
+    -- version = "v3.10",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
-        "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
         local neotree = require("neo-tree")

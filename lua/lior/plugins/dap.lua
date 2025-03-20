@@ -30,6 +30,9 @@ return {
             }
         }
 
+        dap.configurations.c = dap.configurations.rust;
+        dap.configurations.cpp = dap.configurations.rust;
+
         require("neodev").setup({
             library = {
                 plugins = {

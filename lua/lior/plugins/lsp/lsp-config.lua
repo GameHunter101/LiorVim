@@ -1,16 +1,16 @@
 return {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
     dependencies = {
         -- LSP Support
-        { 'neovim/nvim-lspconfig' },             -- Required
-        { 'williamboman/mason.nvim' },           -- Optional
-        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+        { "neovim/nvim-lspconfig" },             -- Required
+        { "williamboman/mason.nvim" },           -- Optional
+        { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
         -- Autocompletion
-        { 'hrsh7th/nvim-cmp' },     -- Required
-        { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-        { 'L3MON4D3/LuaSnip' },     -- Required
+        { "hrsh7th/nvim-cmp" },     -- Required
+        { "hrsh7th/cmp-nvim-lsp" }, -- Required
+        { "L3MON4D3/LuaSnip", }, -- Required
         { "rafamadriz/friendly-snippets" },
         { "antosha417/nvim-lsp-file-operations", config = true },
     },
@@ -23,20 +23,22 @@ return {
 
         require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
         lsp.ensure_installed({
-            "codelldb",
             "clangd",
-            "tsserver",
+            "tinymist"
+        })
+
+        require("lspconfig").tinymist.setup({
+            settings = {
+                formatterMode = "typstyle",
+                exportPdf = "onType",
+                semanticTokens = "enable"
+            }
         })
 
         lsp.configure("clangd", {
             cmd = {
-                "C:\\Users\\liors\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clangd",
+                "C:\\Users\\liors\\scoop\\apps\\llvm\\current\\bin\\clangd",
                 "--fallback-style=chromium"
-            }
-        })
-        require("lspconfig").typst_lsp.setup({
-            settings = {
-                exportPdf = "onSave",
             }
         })
 
@@ -44,9 +46,14 @@ return {
 
         local cmp = require("cmp")
 
+
         cmp.setup({
+            --[[ completion = {
+                autocomplete = false
+            }, ]]
             mapping = {
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
+                -- ["<C-Space>"] = cmp.mapping.complete(),
             },
             window = {
                 completion = cmp.config.window.bordered(),
