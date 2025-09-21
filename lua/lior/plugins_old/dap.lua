@@ -1,6 +1,6 @@
 return {
     "rcarriga/nvim-dap-ui",
-    version = "4.0.0",
+    -- version = "4.0.0",
     dependencies = {
         "mfussenegger/nvim-dap",
         "folke/neodev.nvim",
@@ -9,12 +9,9 @@ return {
     config = function()
         local dap = require("dap")
         dap.adapters.codelldb = {
-            type = 'server',
-            port = "${port}",
-            executable = {
-                command = "C:\\Users\\liors\\AppData\\Local\\nvim\\codelldb\\extension\\adapter\\codelldb.exe",
-                args = { "--port", "${port}" },
-            }
+            type = "executable",
+            command = "codelldb",
+            detached = false,
         }
 
         dap.configurations.rust = {

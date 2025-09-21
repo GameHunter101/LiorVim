@@ -1,5 +1,5 @@
 return {
-    "uncleTen276/dark_flat.nvim",
+    --[[ "uncleTen276/dark_flat.nvim",
 	lazy = false,
 	priority = 1000,
 	config = function()
@@ -19,5 +19,30 @@ return {
             italics = false,
         })
         vim.cmd("colorscheme dark_flat")
-    end,
+    end, ]]
+    {
+        "ramojus/mellifluous.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("mellifluous").setup({
+                colorset = "mountain",
+                mountain = {
+                    color_overrides = {
+                        dark = {
+                            colors = function(colors)
+                                return {
+                                    main_keywords = "#c82b1d",
+                                    operators = colors.functions:desaturated(4)
+                                }
+                            end
+                        }
+                    }
+                }
+            })
+            vim.cmd("colorscheme mellifluous")
+        end
+    },
+    -- { "Aasim-A/scrollEOF.nvim" }
 }
+

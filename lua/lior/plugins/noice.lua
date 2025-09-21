@@ -10,7 +10,16 @@ return {
         -- OPTIONAL:
         --   `nvim-notify` is only needed, if you want to use the notification view.
         --   If not available, we use `mini` as the fallback
-        "rcarriga/nvim-notify",
+        {
+            "rcarriga/nvim-notify",
+            opts = {
+                on_open = function (win)
+                    local config = vim.api.nvim_win_get_config(win)
+                    config.border = "solid"
+                    vim.api.nvim_win_set_config(win, config)
+                end
+            }
+        },
     },
     config = function()
         require("noice").setup({
@@ -22,7 +31,8 @@ return {
                     ["cmp.entry.get_documentation"] = true,
                 },
                 hover = {
-                    silent = true
+                    enabled = false,
+                    silent = false,
                 },
                 message = {
                     enabled = false,
@@ -33,8 +43,47 @@ return {
                 bottom_search = false, -- use a classic bottom cmdline for search
                 command_palette = true, -- position the cmdline and popupmenu together
                 long_message_to_split = true, -- long messages will be sent to a split
-                inc_rename = false, -- enables an input dialog for inc-rename.nvim
+                inc_rename = true, -- enables an input dialog for inc-rename.nvim
                 lsp_doc_border = true, -- add a border to hover docs and signature help
+            },
+            views = {
+                notify = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                split = {
+                    enter = true,
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                vsplit = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                popup = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                mini = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                cmdline = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                cmdline_popup = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                cmdline_output = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                messages = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                confirm = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                hover = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
+                popupmenu = {
+                    border = { style = "none", padding = { 2, 3 } },
+                },
             },
         })
     end

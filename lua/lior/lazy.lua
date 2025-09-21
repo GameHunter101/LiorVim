@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
     {
         {import = "lior.plugins"},
-        {import = "lior.plugins.lsp"},
+        -- {import = "lior.plugins.lsp"},
     },
     {
         change_detection = {

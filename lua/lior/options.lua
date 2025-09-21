@@ -1,6 +1,5 @@
 local g = vim.g
 local opt = vim.opt
-local o = vim.o
 
 g.mapleader = " "
 g.maplocalleader = " "
@@ -25,5 +24,8 @@ opt.fillchars = {
     eob = " ",
 }
 opt.cursorline = true
-o.background = "dark"
+opt.background = "dark"
 opt.scrolloff = 10
+--[[ if vim.fn.has("termguicolors") then
+  vim.opt.termguicolors = true
+end ]]

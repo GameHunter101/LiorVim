@@ -1,7 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    version = "0.9.2",
+    -- version = "0.9.2",
     config = function()
         vim.filetype.add({ extension = { wgsl = "wgsl" } })
 

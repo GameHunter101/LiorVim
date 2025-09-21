@@ -8,7 +8,7 @@ map.set("n", "<C-x>", "<C-w>q")
 
 map.set("n", "<A-l>", ":BufferLineCycleNext<cr>")
 map.set("n", "<A-h>", ":BufferLineCyclePrev<cr>")
-map.set("n", "<C-w>", ":bd!<cr>")
+map.set("n", "<S-q>", ":bd!<cr>")
 
 -- Remaps from ThePrimeagen
 map.set("v", "J", ":m '>+1<CR>gv=gv")
