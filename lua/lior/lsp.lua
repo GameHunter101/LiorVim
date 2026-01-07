@@ -61,6 +61,12 @@ vim.lsp.config("clangd", {
 vim.lsp.enable("clangd")
 
 
+vim.lsp.config("tinymist", {
+    filetypes = {"typst"}
+})
+vim.lsp.enable("tinymist")
+
+
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(e)
         local opts = { buffer = e.buf }

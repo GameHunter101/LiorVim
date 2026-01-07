@@ -28,7 +28,6 @@ return {
                 override = {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                     ["vim.lsp.util.stylize_markdown"] = true,
-                    ["cmp.entry.get_documentation"] = true,
                 },
                 hover = {
                     enabled = false,
@@ -48,41 +47,41 @@ return {
             },
             views = {
                 notify = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 split = {
                     enter = true,
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 vsplit = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 popup = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 mini = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 cmdline = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 cmdline_popup = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 cmdline_output = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 messages = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 confirm = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 hover = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
                 popupmenu = {
-                    border = { style = "none", padding = { 2, 3 } },
+                    border = { style = "none", padding = { 1, 2 } },
                 },
             },
         })
