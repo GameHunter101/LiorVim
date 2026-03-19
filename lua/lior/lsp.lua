@@ -17,8 +17,8 @@ local config = {
         prefix = "",
         suffix = "",
     },
-    virtual_text = false,
-    virtual_lines = true,
+    -- virtual_text = false,
+    -- virtual_lines = true,
 }
 
 

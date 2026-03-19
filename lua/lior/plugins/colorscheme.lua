@@ -1,26 +1,5 @@
 return {
-    --[[ "uncleTen276/dark_flat.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-        require("dark_flat").setup({
-            colors = {
-                gray = "#61646A",
-                cyan = "#3EDAD2",
-                light_green = "#F69E09",
-                -- pink = "#C9304C",
-                dark_gray = "#3C3C44",
-            },
-            themes = function(colors)
-                return {
-                    ["@lsp.mod.documentation"] = { link = "@lsp.type.comment"}
-                }
-            end,
-            italics = false,
-        })
-        vim.cmd("colorscheme dark_flat")
-    end, ]]
-    {
+    --[[ {
         "ramojus/mellifluous.nvim",
         lazy = false,
         priority = 1000,
@@ -42,7 +21,23 @@ return {
             })
             vim.cmd("colorscheme mellifluous")
         end
-    },
-    -- { "Aasim-A/scrollEOF.nvim" }
+    }, ]]
+    {
+        "tiagovla/tokyodark.nvim",
+        opts = {
+            -- transparent_background = true,
+            gamma = 0.9,
+            styles = {
+                comments = { italic = true },
+                keywords = { italic = false }, -- style for keywords
+                identifiers = { italic = true }, -- style for identifiers
+                functions = {},          -- style for functions
+                variables = {},          -- style for variables
+            },
+        },
+        config = function(_, opts)
+            require("tokyodark").setup(opts)
+            vim.cmd("colorscheme tokyodark")
+        end,
+    }
 }
-
