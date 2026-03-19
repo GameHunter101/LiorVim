@@ -36,7 +36,7 @@ return {
             trigger = { show_on_insert = true }
         },
         sources = { default = { "lsp", "path", "snippets" } },
-        fuzzy = { implementation = "prefer_rust_with_warning" },
+        fuzzy = { implementation = "prefer_rust" },
 
     },
     opts_extend = { "sources.default" },
