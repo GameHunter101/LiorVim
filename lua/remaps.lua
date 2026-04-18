@@ -34,3 +34,4 @@ map.set("n", "<A-d>", ":vertical resize -5<CR>")
 
 map.set("n", "<A-w>", ":resize +5<CR>")
 map.set("n", "<A-s>", ":resize -5<CR>")
+map.set("n", "<leader><Esc>", ":restart<CR>")

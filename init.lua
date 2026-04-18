@@ -1,7 +1,9 @@
-require("lior.options")
-require("lior.lazy")
-require("lior.remaps")
-require("lior.lsp")
+require("options")
+-- require("lior.lazy")
+require("remaps")
+-- require("lior.lsp")
+
+vim.loader.enable()
 
 local augroup = vim.api.nvim_create_augroup
 local lior_group = augroup("Lior", {})

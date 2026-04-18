@@ -1,8 +1,10 @@
-return {
-    "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    version = "1.*",
-    opts = {
+require("lazyload").on_vim_enter(function()
+    vim.pack.add({
+        { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
+        { src = "https://github.com/rafamadriz/friendly-snippets" },
+    })
+
+    require("blink.cmp").setup({
         keymap = {
             preset = "default",
             ["<C-b>"] = { "show" },
@@ -37,7 +39,5 @@ return {
         },
         sources = { default = { "lsp", "path", "snippets" } },
         fuzzy = { implementation = "prefer_rust" },
-
-    },
-    opts_extend = { "sources.default" },
-}
+    })
+end)

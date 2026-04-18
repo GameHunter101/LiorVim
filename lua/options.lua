@@ -26,6 +26,10 @@ opt.fillchars = {
 opt.cursorline = true
 opt.background = "dark"
 opt.scrolloff = 10
+opt.autocomplete = false
+opt.completeopt = "menu,menuone,noselect,popup"
+opt.splitbelow = true
+opt.splitright = true
 --[[ if vim.fn.has("termguicolors") then
   vim.opt.termguicolors = true
 end ]]

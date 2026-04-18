@@ -1,0 +1,6 @@
+require("lazyload").on_vim_enter(function ()
+    vim.pack.add({"https://github.com/rachartier/tiny-inline-diagnostic.nvim"})
+
+    require("tiny-inline-diagnostic").setup()
+    vim.diagnostic.config({ virtual_text = false })
+end)
