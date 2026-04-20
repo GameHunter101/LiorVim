@@ -27,7 +27,6 @@ require("lazyload").on_vim_enter(function()
             },
             ghost_text = { enabled = true },
             menu = {
-                border = "solid",
                 draw = {
                     treesitter = { "lsp" }
                 }

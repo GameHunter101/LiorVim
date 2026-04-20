@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "Comment.nvim": {
+      "rev": "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
+      "src": "https://github.com/numToStr/Comment.nvim"
+    },
     "alpha-nvim": {
       "rev": "6c6a89d5b068b5251c8bdf0dd57bb921bcfeeb09",
       "src": "https://github.com/goolord/alpha-nvim"
@@ -14,20 +18,41 @@
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "fff.nvim": {
-      "rev": "689e31284ae1d1836f808b1eaf7fcc74f5e4a236",
+      "rev": "cebacb3c35645a5036adda093d4332f6098865bd",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
-    "neogit": {
-      "rev": "e906fce7e44ae562f06345be99a7db02f8315236",
-      "src": "https://github.com/neogitorg/neogit"
+    "fugit2.nvim": {
+      "rev": "e1d6d261caa093a5845595d15cfaf24570e43c1f",
+      "src": "https://github.com/SuperBo/fugit2.nvim"
+    },
+    "gitstatus.nvim": {
+      "rev": "27a3d02ac86e9cd6b603e1121cd867f0b839922d",
+      "src": "https://codeberg.org/mauritz/gitstatus.nvim"
+    },
+    "harpoon": {
+      "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
+      "src": "https://github.com/ThePrimeagen/harpoon",
+      "version": "'harpoon2'"
+    },
+    "lualine.nvim": {
+      "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
       "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-notify": {
+      "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
+      "src": "https://github.com/rcarriga/nvim-notify"
     },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",

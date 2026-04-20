@@ -1,7 +1,7 @@
 vim.pack.add({
-  { src = "https://github.com/stevearc/oil.nvim" },
-  { src = "https://github.com/malewicz1337/oil-git.nvim" },
-  { src = "https://github.com/JezerM/oil-lsp-diagnostics.nvim" },
+    "https://github.com/malewicz1337/oil-git.nvim",
+    "https://github.com/JezerM/oil-lsp-diagnostics.nvim",
+    "https://github.com/stevearc/oil.nvim",
 })
 
 require("oil-git").setup({
@@ -9,8 +9,8 @@ require("oil-git").setup({
     show_ignored_directories = true,
     symbol_position = "signcolumn",
     symbols = {
-        file = {added = "󰎔", modified = "", deleted = "󰆴", untracked = "󰛐", ignored = "󰛑"},
-        directory = {added = "󰎔", modified = "", deleted = "󰆴", untracked = "󰛐", ignored = "󰛑"},
+        file = { added = "󰎔", modified = "", deleted = "󰆴", untracked = "󰛐", ignored = "󰛑" },
+        directory = { added = "󰎔", modified = "", deleted = "󰆴", untracked = "󰛐", ignored = "󰛑" },
     }
 })
 
