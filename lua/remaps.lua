@@ -36,3 +36,13 @@ map.set("n", "<A-w>", ":resize +5<CR>")
 map.set("n", "<A-s>", ":resize -5<CR>")
 map.set("n", "<leader><Esc>", "<cmd>restart<CR>")
 map.set("n", "<leader>h", "<cmd>noh<CR>")
+map.set("t", "<C-a>", "<C-\\><C-n>")
+map.set("n", "<a-j>", "<cmd>try | cnext | catch | cfirst | catch | endtry<CR>")
+map.set("n", "<a-k>", "<cmd>try | cprev | catch | clast | catch | endtry<CR>")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<CR>", "<CR>", { buffer = true, remap = true })
+  end,
+})

@@ -1,0 +1,37 @@
+require("lazyload").on_vim_enter(function()
+    vim.pack.add({
+        { src = "https://github.com/igorlfs/nvim-dap-view" },
+        { src = "https://codeberg.org/mfussenegger/nvim-dap" },
+    })
+
+    require("dap-view").setup({
+        windows = {
+            position = "right"
+        }
+    })
+
+    local dap = require('dap')
+    dap.adapters.codelldb = {
+        type = "executable",
+        command = "codelldb",
+        -- detached = false,
+    }
+
+    dap.configurations.cpp = {
+        {
+            name = "Launch file",
+            type = "codelldb",
+            request = "launch",
+            program = function()
+                return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            end,
+            cwd = '${workspaceFolder}',
+            stopOnEntry = false,
+        },
+    }
+    dap.configurations.c = dap.configurations.cpp
+    dap.configurations.rust = dap.configurations.cpp
+
+    vim.keymap.set("n", "<leader>b", "<cmd>DapViewToggle<CR>")
+    vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+end)

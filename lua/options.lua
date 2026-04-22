@@ -37,7 +37,7 @@ if vim.fn.has("termguicolors") then
 end
 
 opt.cmdheight = 0
-opt.laststatus = 3
+opt.laststatus = 2
 require("vim._core.ui2").enable({
     enable = true,
     msg = {

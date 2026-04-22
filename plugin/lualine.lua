@@ -30,12 +30,13 @@ require("lazyload").on_vim_enter(function()
                     update_in_insert = true
                 },
             },
-            lualine_c = {
+            lualine_c = {},
+            --[[ lualine_c = {
                 {
                     "buffers",
                     mode = 2
                 }
-            },
+            }, ]]
             lualine_x = {"searchcount", "lsp_status", "filetype"},
             lualine_y = {"progress" }
         }

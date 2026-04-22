@@ -1,7 +1,7 @@
 vim.pack.add({
+    "https://github.com/stevearc/oil.nvim",
     "https://github.com/malewicz1337/oil-git.nvim",
     "https://github.com/JezerM/oil-lsp-diagnostics.nvim",
-    "https://github.com/stevearc/oil.nvim",
 })
 
 require("oil-git").setup({
@@ -15,20 +15,20 @@ require("oil-git").setup({
 })
 
 require("oil").setup({
-    columns = {
-        "permission",
-        "mtime"
-    },
     keymaps = {
         ["<C-v>"] = { "actions.select", opts = { vertical = true } },
-        ["<C-s>"] = { "actions.select", opts = { horizontal = true } },
+        ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
         ["<C-e>"] = { "actions.close", mode = "n" },
     },
     skip_confirm_for_simple_edits = true,
     view_options = { show_hidden = true },
     win_options = { signcolumn = "auto:2" },
+    float = {
+        max_width = 0.8,
+        max_height = 0.8,
+    }
 })
 
 require("oil-lsp-diagnostics").setup()
 
-vim.keymap.set("n", "<C-e>", "<cmd>Oil<cr>", { desc = "Oil" })
+vim.keymap.set("n", "<C-e>", function() require("oil").open_float(".") end)

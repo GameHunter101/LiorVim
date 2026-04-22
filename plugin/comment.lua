@@ -13,4 +13,6 @@ require("lazyload").on_vim_enter(function ()
             extra = false,
         }
     })
+
+    vim.keymap.set("n", "<CR>", function () end)
 end)
