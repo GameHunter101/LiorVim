@@ -19,6 +19,7 @@ require("oil").setup({
         ["<C-v>"] = { "actions.select", opts = { vertical = true } },
         ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
         ["<C-e>"] = { "actions.close", mode = "n" },
+        ["q"] = { "actions.close", mode = "n" },
     },
     skip_confirm_for_simple_edits = true,
     view_options = { show_hidden = true },

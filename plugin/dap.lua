@@ -32,6 +32,6 @@ require("lazyload").on_vim_enter(function()
     dap.configurations.c = dap.configurations.cpp
     dap.configurations.rust = dap.configurations.cpp
 
-    vim.keymap.set("n", "<leader>b", "<cmd>DapViewToggle<CR>")
-    vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+    vim.keymap.set("n", "<leader>db", "<cmd>DapViewToggle<CR>")
+    vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
 end)

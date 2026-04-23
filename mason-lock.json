@@ -3,7 +3,6 @@
   "codelldb": "v1.12.1",
   "java-debug-adapter": "0.58.2",
   "jdtls": "v1.58.0",
-  "lua-language-server": "3.18.2",
   "markdownlint": "0.48.0",
   "tinymist": "v0.14.16",
   "typescript-language-server": "5.1.3",

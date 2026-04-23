@@ -1,7 +1,7 @@
 require("lazyload").on_vim_enter(function()
     vim.pack.add({
-        'https://github.com/nvim-tree/nvim-web-devicons',
-        'https://github.com/nvim-lualine/lualine.nvim'
+        "https://github.com/nvim-tree/nvim-web-devicons",
+        "https://github.com/nvim-lualine/lualine.nvim"
     })
 
     require("lualine").setup({
@@ -14,6 +14,7 @@ require("lazyload").on_vim_enter(function()
             },
             component_separators = "",
             section_separators = { left = '', right = '' },
+            theme = "tokyonight"
         },
         sections = {
             lualine_b = {

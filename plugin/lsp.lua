@@ -50,20 +50,8 @@ require("lazyload").on_vim_enter(function()
         },
         update_in_insert = true,
         underline = true,
-        -- severity_sort = true,
-        --[[float = {
-            border = "solid",
-            source = false,
-            header = "",
-            prefix = "",
-            suffix = "",
-        },--]]
-        -- virtual_text = false,
-        -- virtual_lines = true,
+        severity_sort = true,
     }
-
-    -- vim.lsp.codelens.enable()
-
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -82,19 +70,28 @@ require("lazyload").on_vim_enter(function()
         cmd = { "lua-language-server" },
         filetypes = { "lua" },
         root_markers = { ".luarc.json", ".luarc.jsonc" },
+        telemetry = { enabled = false },
         settings = {
             Lua = {
+                runtime = {
+                    version = "LuaJIT",
+                },
                 diagnostics = {
-                    globals = { "vim" }
-                }
-            }
-        }
+                    -- Get the language server to recognize the `vim` global
+                    globals = { "vim" },
+                },
+                workspace = {
+                    -- Make the server aware of Neovim runtime files
+                    library = vim.api.nvim_get_runtime_file("lua", true),
+                },
+                signatureHelp = { enabled = true },
+            },
+        },
     })
 
     local servers = {
         "clangd",
         "tinymist",
-        "lua_ls",
     }
     vim.lsp.enable(servers)
 
@@ -109,18 +106,21 @@ require("lazyload").on_vim_enter(function()
     vim.lsp.config("tinymist", {
         filetypes = { "typst" }
     })
+
+    vim.lsp.codelens.enable()
+
     vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
         callback = function(e)
             local opts = { buffer = e.buf }
 
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-            vim.keymap.set("n", "ca", function() vim.lsp.buf.code_action() end, opts)
+            -- vim.keymap.set("n", "ca", function() vim.lsp.buf.code_action() end, opts)
             vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
             vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
             vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
             vim.keymap.set("n", "do", function() vim.diagnostic.open_float() end, opts)
-            vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
             vim.keymap.set("n", "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>")
             vim.keymap.set("n", "cl", function() vim.lsp.codelens.run() end)
         end

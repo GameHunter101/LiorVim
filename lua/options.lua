@@ -38,6 +38,9 @@ end
 
 opt.cmdheight = 0
 opt.laststatus = 2
+
+opt.matchpairs:append({"<:>", "$:$"})
+
 require("vim._core.ui2").enable({
     enable = true,
     msg = {
