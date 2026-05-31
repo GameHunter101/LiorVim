@@ -6,8 +6,6 @@ map.set("n", "<C-j>", "<C-w>j")
 map.set("n", "<C-k>", "<C-w>k")
 map.set("n", "<C-x>", "<C-w>q")
 
-map.set("n", "<A-l>", ":BufferLineCycleNext<cr>")
-map.set("n", "<A-h>", ":BufferLineCyclePrev<cr>")
 map.set("n", "<S-q>", ":bd!<cr>")
 
 -- Remaps from ThePrimeagen
@@ -21,8 +19,6 @@ map.set("n", "N", "Nzzzv")
 map.set("i", "<C-c>", "<Esc>")
 map.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-map.set("n", "<leader>l", ":Lazy<CR>")
--- map.set("n", "<leader>h", ":Alpha<CR>")
 map.set("n", "<leader>sh", ":split<Return><C-w>w")
 map.set("n", "<leader>sv", ":vsplit<Return><C-w>w")
 
@@ -43,3 +39,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<CR>", "<CR>", { buffer = true, remap = true })
   end,
 })
+
+vim.cmd("packadd nvim.undotree")
+map.set("n", "<leader>u", require("undotree").open)

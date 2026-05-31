@@ -1,5 +1,6 @@
 require("lazyload").on_vim_enter(function()
-    vim.pack.add({"https://github.com/esmuellert/codediff.nvim"})
+    vim.pack.add({"https://github.com/sindrets/diffview.nvim"})
+    --[[ vim.pack.add({"https://github.com/esmuellert/codediff.nvim"})
 
     require("codediff").setup({
         explorer = {
@@ -8,5 +9,5 @@ require("lazyload").on_vim_enter(function()
         }
     })
 
-    vim.keymap.set("n", "<leader>gd", "<cmd>CodeDiff<CR>")
+    vim.keymap.set("n", "<leader>gd", "<cmd>CodeDiff<CR>") ]]
 end)

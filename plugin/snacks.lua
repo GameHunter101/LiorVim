@@ -10,4 +10,7 @@ require("snacks").setup({
     quickfile = {
         enabled = true
     },
+    image = {
+        enabled = true
+    }
 })

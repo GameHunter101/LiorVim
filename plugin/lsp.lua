@@ -121,7 +121,7 @@ require("lazyload").on_vim_enter(function()
             vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
             vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
             vim.keymap.set("n", "do", function() vim.diagnostic.open_float() end, opts)
-            vim.keymap.set("n", "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>")
+            vim.keymap.set("n", "<F3>", vim.lsp.buf.format)
             vim.keymap.set("n", "cl", function() vim.lsp.codelens.run() end)
         end
     })
