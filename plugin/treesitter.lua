@@ -1,7 +1,9 @@
-vim.pack.add({{
-    src = "https://github.com/nvim-treesitter/nvim-treesitter",
-    version = "main",
-}})
+vim.pack.add({
+    {
+        src = "https://github.com/nvim-treesitter/nvim-treesitter",
+        version = "main",
+    },
+})
 
 require("nvim-treesitter").setup({})
 require("nvim-treesitter").install({
@@ -17,7 +19,8 @@ require("nvim-treesitter").install({
     "markdown",
     "markdown_inline",
     "wgsl",
-    "java"
+    "java",
+    "regex"
 })
 
 vim.api.nvim_create_autocmd("FileType", {

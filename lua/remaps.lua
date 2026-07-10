@@ -32,6 +32,8 @@ map.set("n", "<leader>h", "<cmd>noh<CR>")
 map.set("t", "<C-a>", "<C-\\><C-n>")
 map.set("n", "<a-j>", "<cmd>try | cnext | catch | cfirst | catch | endtry<CR>")
 map.set("n", "<a-k>", "<cmd>try | cprev | catch | clast | catch | endtry<CR>")
+map.set({"n", "v"}, "<a-y>", '"+y')
+map.set({"n", "v"}, "<a-p>", '"+p')
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",

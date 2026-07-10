@@ -1,5 +1,4 @@
 --[[ All credits for this file go to `https://www.reddit.com/r/neovim/comments/1shj1jn/routing_and_filtering_messages_via_type_and_kind/` ]]
-
 local ui2 = require 'vim._core.ui2'
 local msgs = require 'vim._core.ui2.messages'
 
@@ -209,25 +208,6 @@ end
 
 -- ── Wrap msg_show: filtering + title tracking ─────────────────────────
 
-local orig_msg_show = msgs.msg_show
-
-msgs.msg_show = function(kind, content, replace_last, history, append, id, trigger)
-    if should_skip(kind, content) then
-        return
-    end
-    local title, hl = resolve_title(kind, content)
-    last_title, last_hl = title, hl
-    -- orig_msg_show(kind, content, replace_last, history, append, id, trigger)
-
-    local tgt = ui2.cfg.msg.targets[kind]
-        or (trigger ~= '' and ui2.cfg.msg.targets[trigger])
-        or ui2.cfg.msg.targets[trigger]
-        or ui2.cfg.msg.target
-
-    msgs.show_msg(tgt, kind, content, replace_last, append, id)
-    msgs.set_pos(tgt)
-end
-
 local orig_show_msg = msgs.show_msg
 msgs.show_msg = function(tgt, kind, content, replace_last, append, id)
     -- local debug_chunk = { 0, ('[%s:%s] '):format(tgt, kind), 0 }
@@ -254,29 +234,3 @@ msgs.show_msg = function(tgt, kind, content, replace_last, append, id)
     -- orig_show_msg(tgt, kind, debug_content, replace_last, append, id)
     orig_show_msg(tgt, kind, content, replace_last, append, id)
 end
-
--- ── LSP progress ─────────────────────────────────────────────────────
-
-local id = { LspProgressMessages = vim.api.nvim_create_augroup('LspProgressMessages', { clear = true }) }
-
-vim.api.nvim_create_autocmd('LspProgress', {
-    group = id.LspProgressMessages,
-    callback = function(ev)
-        local value = ev.data.params.value
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if not client then
-            return
-        end
-        local is_end = value.kind == 'end'
-        local msg = value.message and (client.name .. ': ' .. value.message)
-            or (client.name .. (is_end and ': done' or ''))
-        vim.api.nvim_echo({ { msg } }, false, {
-            id = 'lsp.' .. ev.data.client_id,
-            kind = 'progress',
-            source = 'vim.lsp',
-            title = value.title,
-            status = is_end and 'success' or 'running',
-            percent = value.percentage,
-        })
-    end,
-})

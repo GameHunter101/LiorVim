@@ -7,6 +7,7 @@ require("lazyload").on_vim_enter(function ()
             block = "<C-m>"
         },
         opleader = {
+            line = "<C-s>",
             block = "<C-m>"
         },
         mappings = {

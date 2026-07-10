@@ -1,7 +1,9 @@
 vim.pack.add({
     "https://github.com/goolord/alpha-nvim",
-    "https://github.com/nvim-tree/nvim-web-devicons"
+    "https://github.com/nvim-tree/nvim-web-devicons",
+    "https://github.com/folke/snacks.nvim",
 })
+
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
@@ -15,6 +17,7 @@ end
 
 -- Set header
 dashboard.section.header.val = {
+    [[                                        ]],
     [[                                        ]],
     [[                           @@           ]],
     [[                          @@@@@         ]],
@@ -52,8 +55,8 @@ dashboard.section.header.val = {
 -- Set menu;
 dashboard.section.buttons.val = {
     dashboard.button("<C-e>", "  File Explorer"),
-    dashboard.button("<leader>fa", "  All Files", ":FFFFind<CR>"),
-    dashboard.button("<leader>l", "󰒲  Lazy", ":Lazy<CR>"),
+    dashboard.button("<leader>fa", "  All Files", Snacks.picker.files),
+    dashboard.button("<leader>fs", "  Grep Search", Snacks.picker.grep),
     dashboard.button("q", "󰅙  Quit", ":qa<CR>")
 }
 
