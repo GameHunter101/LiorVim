@@ -1,4 +1,4 @@
---[[ require("lazyload").on_vim_enter(function()
+require("lazyload").on_vim_enter(function()
     vim.pack.add({
         { src = "https://github.com/nvim-lua/plenary.nvim" },
         { src = "https://github.com/j-morano/buffer_manager.nvim" }
@@ -21,8 +21,8 @@
     })
 
     vim.keymap.set("n", "<leader>t", require("buffer_manager.ui").toggle_quick_menu)
-end) ]]
-vim.pack.add({ "https://github.com/ahkohd/buffer-sticks.nvim" })
+end)
+--[[ vim.pack.add({ "https://github.com/ahkohd/buffer-sticks.nvim" })
 require("buffer-sticks").setup({
     auto_hide = false,
     list = {
@@ -42,4 +42,4 @@ require("buffer-sticks").setup({
 })
 
 vim.keymap.set("n", "<leader>t", function () BufferSticks.list({action = "open"}) end)
-vim.keymap.set("n", "<C-c>", BufferSticks.hide)
+vim.keymap.set("n", "<C-c>", BufferSticks.hide) ]]

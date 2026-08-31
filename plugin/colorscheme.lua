@@ -25,4 +25,8 @@ require("tokyonight").setup({
     end
 })
 
-vim.cmd("colorscheme tokyonight")
+vim.pack.add({"https://github.com/dasupradyumna/midnight.nvim"})
+
+vim.cmd("colorscheme midnight")
+
+vim.api.nvim_set_hl(0, "NonText", { fg = "#905ab2" })
