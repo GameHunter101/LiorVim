@@ -30,3 +30,11 @@ vim.api.nvim_create_autocmd("FileType", {
 		pcall(vim.treesitter.start)
 	end,
 })
+
+require("treesitter-context").setup({
+    max_lines = 5,
+    multiwindow = false,
+    separator = "─",
+    mode = "topline",
+    trim_scope = "inner",
+})
