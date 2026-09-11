@@ -42,5 +42,4 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.cmd("packadd nvim.undotree")
 map.set("n", "<leader>u", require("undotree").open)

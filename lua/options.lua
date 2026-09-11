@@ -40,3 +40,6 @@ opt.cmdheight = 0
 opt.laststatus = 2
 
 opt.matchpairs:append({"<:>", "$:$"})
+
+vim.cmd("packadd nvim.undotree")
+vim.cmd("packadd cfilter")

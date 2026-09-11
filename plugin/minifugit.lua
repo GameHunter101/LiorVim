@@ -4,8 +4,12 @@ require("lazyload").on_vim_enter(function()
     require("minifugit").setup()
     vim.keymap.set("n", "<leader>gs", require("minifugit").status) ]]
 
-    vim.pack.add({"https://github.com/Darkskittlz/GitCompanion"})
+    --[[ vim.pack.add({"https://github.com/Darkskittlz/GitCompanion"})
     require("gitcompanion").setup({})
 
-    vim.keymap.set("n", "<leader>gs", "<CMD>GitCompanion<CR>")
+    vim.keymap.set("n", "<leader>gs", "<CMD>GitCompanion<CR>") ]]
+
+    vim.pack.add({"https://github.com/tpope/vim-fugitive"})
+
+    vim.keymap.set("n", "<leader>gs", "<CMD>G<CR>")
 end)
